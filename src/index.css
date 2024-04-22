@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  overflow: hidden;
+}
+
+.light {
+  --background: 0, 0%, 100%;
+  --primary: 235, 19%, 35%;
+  --secondary: 0, 0%, 98%;
+  --light-grey: 236, 33%, 92%;
+  --border: 234, 19%, 75%;
+  --light-greyish-blue: 233, 6%, 68%;
+}
+
+.dark {
+  --background: 237, 14%, 26%;
+  --primary: 236, 33%, 92%;
+  --secondary: 233, 14%, 35%;
+  --light-grey: 233, 14%, 35%;
+  --border: 234, 19%, 65%;
+  --light-greyish-blue: 233, 16%, 68%;
+}
