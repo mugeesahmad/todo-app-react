@@ -1,4 +1,5 @@
 import { forwardRef, memo, useImperativeHandle, useMemo } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { produce } from "immer";
 import useTodos from "../hooks/useTodos";
 import useFilter from "../hooks/useFilter";
@@ -18,6 +19,11 @@ const Todos = memo(
     ] = useTodos();
 
     const isTouchScreen = "ontouchstart" in document.documentElement;
+
+    const [todosListRef] = useAutoAnimate({
+      duration: 300,
+      easing: "ease-in-out",
+    });
 
     useImperativeHandle(ref, () => ({
       addTodo,
@@ -77,7 +83,7 @@ const Todos = memo(
         className={`mt-8 w-full overflow-hidden rounded-md bg-secondary shadow-lg transition-colors duration-300`}
       >
         {filteredTodos.length > 0 ? (
-          <ul className="min-h-[50vh] sm:min-h-72">
+          <ul className="min-h-[50vh] sm:min-h-72" ref={todosListRef}>
             {filteredTodos.map((todo, index) => (
               <Todo
                 key={todo.id}
